@@ -19,15 +19,15 @@ class ConnectionValidator {
   private func validateConnection() {
     let monitor = NWPathMonitor()
     monitor.pathUpdateHandler = { path in
-      if path.status != .satisfied {
-        self.hasInternetCollection = false
+      if path.status == .satisfied {
+        self.hasInternetCollection = true
         if path.usesInterfaceType(.wifi){
           self.connectionType = .wifi
         } else if path.usesInterfaceType(.cellular) {
           self.connectionType = .cellular
         }
       } else {
-        self.hasInternetCollection = true
+        self.hasInternetCollection = false
       }
     }
     monitor.start(queue: DispatchQueue.global())

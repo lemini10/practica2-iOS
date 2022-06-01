@@ -53,9 +53,9 @@ class DetailViewController: UIViewController {
     private func isDownloaded() -> Bool {
         switch viewControllerType {
         case .excel:
-            <#code#>
+            break
         case .pdf:
-            <#code#>
+            break
         case .photo:
             let path = "/Users/lrbl/Library/Developer/CoreSimulator/Devices/91316331-3D0E-4327-B4AC-70D65B7D3F7E/data/Containers/Data/Application/40757620-567D-40EA-8030-A9EEB7DA9A6E/Documents/geo_vertical.jpg"
         }

@@ -43,17 +43,22 @@ class FileDownloader {
 
     static func loadFileAsync(url: URL, completion: @escaping (String?, Error?) -> Void)
     {
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let documentsUrl =  FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first!
 
         let destinationUrl = documentsUrl.appendingPathComponent(url.lastPathComponent)
 
+        guard ConnectionValidator.shared.hasInternetCollection else {
+            completion(nil, ErrorDownloader.noInternetConnection)
+            return
+        }
         if FileManager().fileExists(atPath: destinationUrl.path)
         {
             print("File already exists [\(destinationUrl.path)]")
-            completion(destinationUrl.path, nil)
+            completion(destinationUrl.path, ErrorDownloader.AlreadyDownloaded)
         }
         else
         {
+            
             let session = URLSession(configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: nil)
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
@@ -92,4 +97,9 @@ class FileDownloader {
             task.resume()
         }
     }
+}
+
+enum ErrorDownloader: Error {
+    case noInternetConnection
+    case AlreadyDownloaded
 }

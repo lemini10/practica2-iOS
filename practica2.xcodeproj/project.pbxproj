@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A84C8C6928472824009E3F1F /* ConnectionValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84C8C6828472824009E3F1F /* ConnectionValidator.swift */; };
 		A8DE7E8C2845CBAF008CB624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE7E8B2845CBAF008CB624 /* AppDelegate.swift */; };
 		A8DE7E8E2845CBAF008CB624 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE7E8D2845CBAF008CB624 /* SceneDelegate.swift */; };
 		A8DE7E932845CBAF008CB624 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8DE7E912845CBAF008CB624 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A84C8C6828472824009E3F1F /* ConnectionValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionValidator.swift; sourceTree = "<group>"; };
 		A8DE7E882845CBAF008CB624 /* practica2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practica2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DE7E8B2845CBAF008CB624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8DE7E8D2845CBAF008CB624 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				A8DE7E9F2845CDFC008CB624 /* MasterViewController.swift */,
 				A8DE7EA12845D0D3008CB624 /* DetailViewController.swift */,
 				A8DE7EA32845D48C008CB624 /* FileDownloader.swift */,
+				A84C8C6828472824009E3F1F /* ConnectionValidator.swift */,
 				A8DE7EA52845D4A4008CB624 /* DestinationType.swift */,
 				A8DE7E912845CBAF008CB624 /* Main.storyboard */,
 				A8DE7E942845CBB0008CB624 /* Assets.xcassets */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8DE7E8C2845CBAF008CB624 /* AppDelegate.swift in Sources */,
+				A84C8C6928472824009E3F1F /* ConnectionValidator.swift in Sources */,
 				A8DE7E8E2845CBAF008CB624 /* SceneDelegate.swift in Sources */,
 				A8DE7EA62845D4A4008CB624 /* DestinationType.swift in Sources */,
 				A8DE7EA02845CDFC008CB624 /* MasterViewController.swift in Sources */,

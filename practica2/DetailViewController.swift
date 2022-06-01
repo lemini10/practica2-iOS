@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import WebKit
 
-class DetailViewController: UIViewController {
+class DetailURLViewController: UIViewController, WKNavigationDelegate {
     
-    let viewControllerType: DestinationType
+    let url: String
     
-    init(type: DestinationType) {
-        self.viewControllerType = type
+    init(url: String) {
+        self.url = url
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -22,47 +23,16 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkType()
+        loadWebView()
     }
     
-    private func checkType() {
-        if isDownloaded() {
-            switch viewControllerType {
-            case .excel:
-                break
-            case .pdf:
-                break
-            case .photo:
-                break
-            }
-        } else {
-            switch viewControllerType {
-            case .excel:
-                let url = URL(string: "http://janzelaznog.com/DDAM/iOS/vim/localidades.xlsx")
-                FileDownloader.loadFileAsync(url: url!) { (path, error) in
-                    guard error != nil else { return }
-                }            case .pdf:
-                let url = URL(string: "http://janzelaznog.com/DDAM/iOS/vim/Articles.pdf")
-                FileDownloader.loadFileAsync(url: url!) { (path, error) in
-                    guard error != nil else { return }
-                }            case .photo:
-                let url = URL(string: "http://janzelaznog.com/DDAM/iOS/vim/geo_vertical.jpg")
-                FileDownloader.loadFileAsync(url: url!) { (path, error) in
-                    guard error != nil else { return }
-                }
-            }
-        }
+    private func loadWebView() {
+        let webV: WKWebView = WKWebView(frame: CGRect(origin: .zero, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)))
+        guard let safeURL = URL(string: url) else { return }
+        webV.navigationDelegate = self
+        webV.load(URLRequest(url: safeURL))
+        self.view.addSubview(webV)
     }
     
-    private func isDownloaded() -> Bool {
-        switch viewControllerType {
-        case .excel:
-            break
-        case .pdf:
-            break
-        case .photo:
-            let path = "/Users/lrbl/Library/Developer/CoreSimulator/Devices/91316331-3D0E-4327-B4AC-70D65B7D3F7E/data/Containers/Data/Application/40757620-567D-40EA-8030-A9EEB7DA9A6E/Documents/geo_vertical.jpg"
-        }
-        return false
-    }
 }
+

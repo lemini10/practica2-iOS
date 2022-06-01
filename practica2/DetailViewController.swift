@@ -38,13 +38,17 @@ class DetailViewController: UIViewController {
         } else {
             switch viewControllerType {
             case .excel:
-                break
-            case .pdf:
-                break
-            case .photo:
+                let url = URL(string: "http://janzelaznog.com/DDAM/iOS/vim/localidades.xlsx")
+                FileDownloader.loadFileAsync(url: url!) { (path, error) in
+                    guard error != nil else { return }
+                }            case .pdf:
+                let url = URL(string: "http://janzelaznog.com/DDAM/iOS/vim/Articles.pdf")
+                FileDownloader.loadFileAsync(url: url!) { (path, error) in
+                    guard error != nil else { return }
+                }            case .photo:
                 let url = URL(string: "http://janzelaznog.com/DDAM/iOS/vim/geo_vertical.jpg")
                 FileDownloader.loadFileAsync(url: url!) { (path, error) in
-                    print("PDF File downloaded to : \(path!)")
+                    guard error != nil else { return }
                 }
             }
         }
